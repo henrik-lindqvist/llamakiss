@@ -1,0 +1,45 @@
+
+#ifdef APSTUDIO_INVOKED
+#error this file is not editable by Microsoft Visual C++
+#endif // APSTUDIO_INVOKED
+
+#include <winver.h>
+#include "Version.h"
+
+VS_VERSION_INFO         VERSIONINFO
+    FILEVERSION         VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION, VERSION_BUILD
+    PRODUCTVERSION      VERSION_MAJOR, VERSION_MINOR, VERSION_REVISION, VERSION_BUILD
+    FILEFLAGSMASK       VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+    FILEFLAGS           VS_FF_DEBUG|VS_FF_PRIVATEBUILD|VS_FF_PRERELEASE
+#else // !_DEBUG
+    FILEFLAGS           0   // final version
+#endif // !_DEBUG
+	FILEOS              VOS_NT_WINDOWS32
+	FILETYPE            0   // not needed
+	FILESUBTYPE         0   // not needed
+
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904E4" // Lang=US English, CharSet=Windows Multilingual
+		BEGIN 
+			VALUE "ProductName",		APPLICATION_NAME "\0"
+			VALUE "InternalName",		APPLICATION_NAME "\0"
+			VALUE "OriginalFilename",	APPLICATION_NAME ".exe\0"
+			VALUE "FileDescription",	APPLICATION_DESCRIPTION "\0"
+			VALUE "FileVersion",		VERSION_STRING "\0"
+			VALUE "ProductVersion",		VERSION_STRING "\0"
+			VALUE "CompanyName",		APPLICATION_COMPANY
+			VALUE "LegalCopyright",		APPLICATION_COPYRIGHT
+#ifdef APPLICATION_TRADEMARKS
+			VALUE "LegalTrademarks",	APPLICATION_TRADEMARKS
+#endif
+		END
+	END
+	BLOCK "VarFileInfo" 
+	BEGIN 
+		VALUE "Translation", 0x409, 1252
+		// English language (0x409) and the Windows ANSI codepage (1252)
+	END
+END
